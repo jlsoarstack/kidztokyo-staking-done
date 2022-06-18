@@ -54,10 +54,15 @@ const Header = ({ farmId, setFarmId }: Props) => {
           <Flex sx={{ alignItems: "center", flexDirection: "column" }}>
             <Flex
               sx={{
-                alignItems: "center",
-                position: "relative",
-                top: 80,
-                left: 20,
+                "@media (min-width: 768px)": {
+                  alignItems: "center",
+                  position: "relative",
+                  top: 80,
+                  left: 20,
+                },
+                "@media (max-width: 768px)": {
+                  display: "block",
+                },
               }}
             >
               <img
@@ -67,11 +72,27 @@ const Header = ({ farmId, setFarmId }: Props) => {
                   borderRadius: 100,
                   marginRight: 20,
                   border: "2px solid #fff",
+                  "@media (max-width: 768px)": {
+                    marginLeft: "calc(50% - 80px)",
+                    marginTop: "4rem",
+                  },
                 }}
                 src="/images/logo.gif"
                 alt="kidztokyo"
               />
-              <Box ml=".4rem" mt="4rem">
+              <Box
+                sx={{
+                  marginLeft: ".4rem",
+                  marginTop: "4rem",
+
+                  "@media (max-width: 768px)": {
+                    textAlign: "center",
+                    display: "block",
+                    marginTop: 0,
+                    marginLeft: 0,
+                  },
+                }}
+              >
                 <Text as="h1" sx={{ fontWeight: 500 }}>
                   KidzTokyo
                 </Text>
@@ -100,7 +121,7 @@ const Header = ({ farmId, setFarmId }: Props) => {
             {process.env.NEXT_PUBLIC_CONNECTION_NETWORK}
           </Text> */}
 
-          <Button
+          {/* <Button
             sx={{
               padding: ".8rem",
               "@media(min-width: 768px)": {
@@ -110,7 +131,7 @@ const Header = ({ farmId, setFarmId }: Props) => {
             onClick={() => setIsMobileMenuActive(true)}
           >
             <MenuIcon />
-          </Button>
+          </Button> */}
         </Flex>
       </Container>
     </Flex>
